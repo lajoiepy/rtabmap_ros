@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-key adv --keyserver keys.gnupg.net --recv-key C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C8B3A55A6F3EFCDE
 RUN add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
 RUN apt-get install -y librealsense2-dkms librealsense2-utils librealsense2-dev
-RUN apt-get install  ros-kinetic-diagnostic-updater
+RUN apt-get install  ros-kinetic-diagnostic-updater ros-kinetic-ddynamic-reconfigure
 
 RUN source /ros_entrypoint.sh && \
     mkdir -p ~/catkin_ws/src &&\
@@ -49,3 +49,6 @@ RUN source /ros_entrypoint.sh && \
     git clone https://github.com/lajoiepy/rtabmap_ros.git && \
     cd .. && \
     catkin_make -j1 -DCMAKE_INSTALL_PREFIX=/opt/ros/kinetic install
+
+
+RUN mkdir -p bags
