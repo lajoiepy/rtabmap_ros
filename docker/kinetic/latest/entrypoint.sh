@@ -17,6 +17,11 @@ case "$3" in
                           /robot_$2/camera/infra2/camera_info /robot_$2/camera/infra2/image_rect_raw \
                           /tf /tf_static
             ;;
+	trigger)
+	    rosservice call /robot_0/start_optimization "{}"
+	    rosservice call /robot_1/start_optimization "{}"
+	    rosservice call /robot_2/start_optimization "{}"
+	    ;;
 
         bash)
             /bin/bash
