@@ -52,3 +52,6 @@ RUN source /ros_entrypoint.sh && \
 
 
 RUN mkdir -p bags
+
+COPY entrypoint.sh /tmp/entrypoint.sh
+RUN chmod +x /tmp/entrypoint.sh
